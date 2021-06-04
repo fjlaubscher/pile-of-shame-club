@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - feature/*
+      - fix/*
+      - release/*
+
+jobs:
+  deploy:
+    env:
+      NODE_ENV: production
+      VERSION: 1.0.0
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - run: sudo apt-get install rsync
+    - run: npm install
+    - run: npm run build
+    - name: rsync-deploy
+      uses: Pendect/action-rsyncer@v1.1.0
+      env:
+        DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+      with:
+        flags: '-arv --delete'
+        src: 'build/'
+        dest: 'root@"${{secrets.SERVER_IP}}":/var/www/pileofshame'
