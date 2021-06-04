@@ -16,18 +16,18 @@ import { MdAdd, MdSave } from 'react-icons/md';
 import { v4 as UUID } from 'uuid';
 
 // api
-import { getPile, updatePile, createPileModel, updatePileModel, deletePileModel } from '../../api';
+import { getPile, updatePile, createPileModel, updatePileModel, deletePileModel } from '../api';
 
 // components
-import DeleteModal from '../../components/delete-modal';
-import Layout from '../../components/layout';
-import ModelCard from '../../components/model/card';
-import ModelFormDrawer from '../../components/model/form-drawer';
-import PileForm from '../../components/pile/form';
-import SearchInput from '../../components/field/search';
+import DeleteModal from '../components/delete-modal';
+import Layout from '../components/layout';
+import ModelCard from '../components/model/card';
+import ModelFormDrawer from '../components/model/form-drawer';
+import PileForm from '../components/pile/form';
+import SearchInput from '../components/field/search';
 
 // state
-import { UserAtom } from '../../state/user';
+import { UserAtom } from '../state/user';
 
 const EditPile = () => {
   const { key } = useParams<KeyParams>();

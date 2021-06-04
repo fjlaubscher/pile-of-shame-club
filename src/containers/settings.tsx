@@ -13,20 +13,20 @@ import { useRecoilState } from 'recoil';
 import { useAsyncFn } from 'react-use';
 
 // api
-import { deleteUser, updateUser } from '../../api';
+import { deleteUser, updateUser } from '../api';
 
 // cloudflare
-import { getUserDataAsync, uploadUserDataAsync } from '../../cloudflare-worker';
+import { getUserDataAsync, uploadUserDataAsync } from '../cloudflare-worker';
 
 // components
-import DeleteModal from '../../components/delete-modal';
-import Layout from '../../components/layout';
+import DeleteModal from '../components/delete-modal';
+import Layout from '../components/layout';
 
 // helpers
-import { UPLOAD_KEY } from '../../helpers/storage';
+import { UPLOAD_KEY } from '../helpers/storage';
 
 // state
-import { UserAtom } from '../../state/user';
+import { UserAtom } from '../state/user';
 
 const Settings = () => {
   const [user, setUser] = useRecoilState(UserAtom);

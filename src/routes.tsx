@@ -10,6 +10,7 @@ import { getUser, createUser } from './api';
 const EditPile = lazy(() => import('./containers/pile'));
 const Home = lazy(() => import('./containers/home'));
 const Settings = lazy(() => import('./containers/settings'));
+const NotFound = lazy(() => import('./containers/not-found'));
 
 // state
 import { UserAtom } from './state/user';
@@ -35,9 +36,7 @@ const Router = () => {
         <Route path="/" exact component={Home} />
         <Route path="/settings" exact component={Settings} />
         <Route path="/pile/:key" exact component={EditPile} />
-        <Route path="*">
-          <h1>Not Found</h1>
-        </Route>
+        <Route path="*" component={NotFound} />
       </Switch>
     </Suspense>
   );
